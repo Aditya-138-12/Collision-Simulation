@@ -2,6 +2,4 @@
 Right now this project is meant to be for complete understanding.
 ---
 ### Elastic Collision Equation for new vel
-<div style="background-color:white;">
-<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/14d5feb68844edae9e31c9cb4a2197ee922e409c">
-</div>
+![Screenshot from 2025-04-05 04-44-04](https://github.com/user-attachments/assets/fa6f0fe7-e1b5-4ba8-9e3e-2f3fa23a4242)
