@@ -6,13 +6,13 @@ window.onload = function(){
     const ctx = canvas.getContext("2d");
 
     function setup(){
-        atomA = new atom();
-        atomB = new atom();
+        atomA = new atom(25, 'grey', 'black');
+        atomB = new atom(40, 'grey', 'black');
     }
     
     function draw(){
-        atomA.show(ctx, atomA, 25, 'grey', 'black');
-        atomB.show(ctx, atomB, 40, 'grey', 'black');
+        atomA.show(ctx, atomA);
+        atomB.show(ctx, atomB);
     }
 
     setup();
