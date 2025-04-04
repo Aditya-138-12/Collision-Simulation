@@ -106,7 +106,7 @@ class atom{
         ctx.fillStyle = this.bgColour;
         ctx.fill();
         ctx.strokeStyle = this.strokeColour;
-        ctx.strokeWidth = 2;
+        ctx.lineWidth = 2;
         ctx.stroke();
         ctx.imageSmoothingEnabled = true;
     }
