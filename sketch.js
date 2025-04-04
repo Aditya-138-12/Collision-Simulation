@@ -13,6 +13,16 @@ window.onload = function(){
     function draw(){
         atomA.show(ctx, atomA);
         atomB.show(ctx, atomB);
+        requestAnimationFrame(update);
+    }
+
+    function update(){
+        atomA.update();
+        atomB.update();
+        atomA.edges();
+        atomB.edges();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        draw();
     }
 
     setup();

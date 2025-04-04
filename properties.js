@@ -1,28 +1,78 @@
+const canvas = document.getElementById('main_div_Particles');
+const ctx = canvas.getContext("2d");
+
 class atom{
     constructor(raduis, bgColour, strokeColour){
         this.position = this.createPositionVector();
         this.radius = raduis;
         this.bgColour = bgColour;
         this.strokeColour = strokeColour;
+        this.velocity = this.create2DVelocityVector();
+        this.accleration = this.ccreate2DAcclerationVector();
     }
 
-    // Creates Position vector
+    add(vector){
+        this.position.x += vector.velX;
+        this.position.y += vector.velY;
+    }
+
+    // Creates 2D Accleration Vector
+    ccreate2DAcclerationVector(){
+        let accX = Math.random()*(6 - 2)+2;
+        let accY = Math.random()*(6 - 2)+2;
+        return {accX, accY}
+    }
+
+    // Creates 2D Velocity vector
+    create2DVelocityVector(){
+        let velX = Math.random()*(6 - 2)+2;
+        let velY = Math.random()*(6 - 2)+2;
+        return {velX, velY}
+    }
+
+    // Creates 2D Position vector
     createPositionVector(){
-        this.x = (Math.random() * 500);
-        this.y = (Math.random() * 500);
-        if(this.x <= 40 || this.x >= 460 || this.y <= 40 || this.y >= 460){
-            this.x = (Math.random() * 500) + 40;
-            this.y = (Math.random() * 500) + 40;
+        let x = (Math.random() * 500);
+        let y = (Math.random() * 500);
+        if(x <= 40 || x >= 460 || y <= 40 || y >= 460){
+            x = (Math.random() * 500) + 40;
+            y = (Math.random() * 500) + 40;
         }
-        if(this.x <= 25 || this.x >= 475 || this.y <= 25 || this.y >= 475){
-            this.x = (Math.random() * 475) + 25;
-            this.y = (Math.random() * 475) + 25;
+        if(x <= 25 || x >= 475 || y <= 25 || y >= 475){
+            x = (Math.random() * 475) + 25;
+            y = (Math.random() * 475) + 25;
+        }
+        return {x, y};
+    }
+
+    // Updates the position of the atoms
+    update(){
+        this.add(this.velocity);
+    }
+
+    // Method to simulate bouncy edges
+    edges(){
+        if(this.position.x > canvas.width - this.radius){
+            this.position.x = canvas.width - this.radius;
+            this.velocity.velX *= -1;
+        }else if(this.position.x < this.radius){
+            this.position.x = this.radius;
+            this.velocity.velX *= -1;
+        }
+
+        if(this.position.y > canvas.height - this.radius){
+            this.position.y = canvas.height - this.radius;
+            this.velocity.velY *= -1;
+        }else if(this.position.y < this.radius){
+            this.position.velY = this.radius;
+            this.velocity.velY *= -1;
         }
     }
 
+    // Method to show/create the atoms.
     show(ctx, atom){
         ctx.beginPath();
-        ctx.arc(atom.x, atom.y, atom.radius, 0, Math.PI*2);
+        ctx.arc(atom.position.x, atom.position.y, atom.radius, 0, Math.PI*2);
         ctx.fillStyle = this.bgColour;
         ctx.fill();
         ctx.strokeStyle = this.strokeColour;
