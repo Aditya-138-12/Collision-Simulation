@@ -17,10 +17,17 @@ window.onload = function(){
     }
 
     function update(){
+        // console.log("atomA vel: ", atomA.velocity.velX);
+        // console.log("atomA vel: ", atomA.velocity.velY);
+        // console.log("atomB vel: ", atomB.velocity.velX);
+        // console.log("atomB vel: ", atomB.velocity.velY);
+        // console.log("atomA Position: ", atomA.position.x);
+        // console.log("atomA position: ", atomA.position.y);
         atomA.update();
         atomB.update();
         atomA.edges();
         atomB.edges();
+        atomA.collision(atomB);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         draw();
     }

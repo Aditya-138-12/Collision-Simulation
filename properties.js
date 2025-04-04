@@ -9,23 +9,29 @@ class atom{
         this.strokeColour = strokeColour;
         this.velocity = this.create2DVelocityVector();
         this.accleration = this.ccreate2DAcclerationVector();
+        this.mass = Math.random()*(4 - 2)+2;
     }
 
-    add(vector){
+    addVelocity(vector){
         this.position.x += vector.velX;
         this.position.y += vector.velY;
     }
 
+    addAccleration(vector){
+        this.velocity.velX += vector.accX;
+        this.velocity.velY += vector.accY;
+    }
+
     // Creates 2D Accleration Vector
     ccreate2DAcclerationVector(){
-        let accX = Math.random()*(6 - 2)+2;
+        let accX = Math.random()*(6 - 2)+2; // Accleration is between 2-6
         let accY = Math.random()*(6 - 2)+2;
         return {accX, accY}
     }
 
     // Creates 2D Velocity vector
     create2DVelocityVector(){
-        let velX = Math.random()*(6 - 2)+2;
+        let velX = Math.random()*(6 - 2)+2; // Velocity is between 2-6
         let velY = Math.random()*(6 - 2)+2;
         return {velX, velY}
     }
@@ -47,7 +53,8 @@ class atom{
 
     // Updates the position of the atoms
     update(){
-        this.add(this.velocity);
+        this.addVelocity(this.velocity);
+        // this.addAccleration(this.accleration);
     }
 
     // Method to simulate bouncy edges
@@ -64,9 +71,32 @@ class atom{
             this.position.y = canvas.height - this.radius;
             this.velocity.velY *= -1;
         }else if(this.position.y < this.radius){
-            this.position.velY = this.radius;
+            this.position.y = this.radius;
             this.velocity.velY *= -1;
         }
+    }
+
+    // Calculates distance between 2 atoms, Euclidean Distance: Sqrt((x2-x1)**2 + (y2-y1)**2)
+    distanceBetweenTwoAtoms(other){
+        let val1 = (this.position.x - other.position.x)**2;
+        let val2 = (this.position.y - other.position.y)**2;
+        let distance = Math.sqrt(val1 + val2);
+        return distance;
+    }
+
+    // This method will detect the collision
+    collision(other){
+        let distance = this.distanceBetweenTwoAtoms(other);
+        if(distance < this.radius + other.radius){
+            console.log("Collision Detected!");
+        }
+
+        let m1 = this.mass;
+        let m2 = other.mass;
+        let vx1 = this.velocity.velX;
+        let vy1 = this.velocity.velY;
+        let vx2 = other.velocity.velX;
+        let vy2 = other.velocity.velY;
     }
 
     // Method to show/create the atoms.
