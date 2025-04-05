@@ -1,3 +1,4 @@
+(function(){
 let atomA;
 let atomB;
 
@@ -64,3 +65,4 @@ window.onload = function(){
     setup();
     draw();
 }
+})();
