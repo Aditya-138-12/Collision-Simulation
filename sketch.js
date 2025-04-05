@@ -42,17 +42,17 @@ window.onload = function(){
         atomA.collision(atomB);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         draw();
-        atomAPosX.textContent = Math.floor(atomA.position.x);
-        atomAPosY.textContent = Math.floor(atomA.position.y);
+        atomAPosX.textContent = Math.floor(atomA.position.x * 1000) / 1000;
+        atomAPosY.textContent = Math.floor(atomA.position.y * 1000) / 1000;
 
-        atomAVelX.textContent = Math.floor(atomA.velocity.velX);
-        atomAVelY.textContent = Math.floor(atomA.velocity.velY);
+        atomAVelX.textContent = Math.floor(atomA.velocity.velX * 1000) / 1000;
+        atomAVelY.textContent = Math.floor(atomA.velocity.velY * 1000) / 1000;
 
-        atomBPosX.textContent = Math.floor(atomB.position.x);
-        atomBPosY.textContent = Math.floor(atomB.position.y);
+        atomBPosX.textContent = Math.floor(atomB.position.x * 1000) / 1000;
+        atomBPosY.textContent = Math.floor(atomB.position.y * 1000) / 1000;
 
-        atomBVelX.textContent = Math.floor(atomB.velocity.velX);
-        atomBVelY.textContent = Math.floor(atomB.velocity.velY);
+        atomBVelX.textContent = Math.floor(atomB.velocity.velX * 1000) / 1000;
+        atomBVelY.textContent = Math.floor(atomB.velocity.velY * 1000) / 1000;
     }
 
     setup();
