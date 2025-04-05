@@ -18,8 +18,8 @@ window.onload = function(){
     const atomBVelY = document.getElementById('atomBVelY');
 
     function setup(){
-        atomA = new atom(25, 'grey', 'black', 'A');
-        atomB = new atom(40, 'grey', 'black', 'B');
+        atomA = new atom(25, 'blue', 'black', 'A');
+        atomB = new atom(40, 'red', 'black', 'B');
     }
     
     function draw(){
