@@ -93,10 +93,43 @@ class atom{
 
         let m1 = this.mass;
         let m2 = other.mass;
+        let sumMass = m1 + m2;
+        let twiceM2 = m2*2;
+
+        let posX1 = this.position.x;
+        let posY1 = this.position.y;
+
+        let posX2 = other.position.x;
+        let posY2 = other.position.y;
+
         let vx1 = this.velocity.velX;
         let vy1 = this.velocity.velY;
+
         let vx2 = other.velocity.velX;
         let vy2 = other.velocity.velY;
+
+        let newVX = vx1 - vx2;
+        let newVY = vy1 - vy2;
+
+        let newPosX = posX1 - posX2;
+        let newPosY = posY1 - posY2;
+
+        let dotProduct = (newVX * newPosX) + (newVY * newPosY);
+
+        let mag = Math.sqrt((newPosX**2) + (newPosY**2));
+        let magSquare = mag**2;
+
+        let num = twiceM2*dotProduct;
+        let denom = sumMass*magSquare;
+        let ans = num/denom;
+        newPosX *= ans;
+        newPosY *= ans;
+
+        this.velocity.velX -= newPosX;
+        this.velocity.velY -= newPosY;
+
+        // Dot product of 2 vectors.
+        
     }
 
     // Method to show/create the atoms.
