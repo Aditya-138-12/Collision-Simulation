@@ -1,4 +1,4 @@
-# 1D Particle Simulation
+# Particle Simulation
 Right now this project is meant to be for understanding.
 
 Demo [here](https://aditya-138-12.github.io/1D-Collision-Simulation/)
