@@ -89,9 +89,8 @@ class atom{
         let distance = this.distanceBetweenTwoAtoms(other);
         if(distance < this.radius + other.radius){
             console.log("Collision Detected!");
-        }
 
-        let m1 = this.mass;
+            let m1 = this.mass;
         let m2 = other.mass;
         let sumMass = m1 + m2;
         let twiceM2 = m2*2;
@@ -129,7 +128,8 @@ class atom{
         this.velocity.velY -= newPosY;
 
         // Dot product of 2 vectors.
-        
+
+        }
     }
 
     // Method to show/create the atoms.

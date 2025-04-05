@@ -23,10 +23,38 @@ body{
     display: flex;
     flex-direction: row;
     border-bottom: 0.1px solid black;
+    gap: 40%;
 }
 
 .main_div_Particles{
     position: relative;
     height: 80%;
     width: 100%;
+}
+
+.atomA{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 30%;
+    color: blue;
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.atomA p{
+    margin:3px;
+}
+
+.atomB{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 30%;
+    padding-left: 20px;
+    color: red;
+}
+
+.atomB p{
+    margin: 3px;
 }

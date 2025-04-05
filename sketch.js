@@ -5,6 +5,18 @@ window.onload = function(){
     const canvas = document.getElementById('main_div_Particles');
     const ctx = canvas.getContext("2d");
 
+    const atomAPosX = document.getElementById('atomAPosX');
+    const atomAPosY = document.getElementById('atomAPosY');
+
+    const atomAVelX = document.getElementById('atomAVelX');
+    const atomAVelY = document.getElementById('atomAVelY');
+
+    const atomBPosX = document.getElementById('atomBPosX');
+    const atomBPosY = document.getElementById('atomBPosY');
+
+    const atomBVelX = document.getElementById('atomBVelX');
+    const atomBVelY = document.getElementById('atomBVelY');
+
     function setup(){
         atomA = new atom(25, 'grey', 'black');
         atomB = new atom(40, 'grey', 'black');
@@ -30,6 +42,17 @@ window.onload = function(){
         atomA.collision(atomB);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         draw();
+        atomAPosX.textContent = Math.floor(atomA.position.x);
+        atomAPosY.textContent = Math.floor(atomA.position.y);
+
+        atomAVelX.textContent = Math.floor(atomA.velocity.velX);
+        atomAVelY.textContent = Math.floor(atomA.velocity.velY);
+
+        atomBPosX.textContent = Math.floor(atomB.position.x);
+        atomBPosY.textContent = Math.floor(atomB.position.y);
+
+        atomBVelX.textContent = Math.floor(atomB.velocity.velX);
+        atomBVelY.textContent = Math.floor(atomB.velocity.velY);
     }
 
     setup();
