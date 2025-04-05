@@ -2,7 +2,7 @@ const canvas = document.getElementById('main_div_Particles');
 const ctx = canvas.getContext("2d");
 
 class atom{
-    constructor(raduis, bgColour, strokeColour){
+    constructor(raduis, bgColour, strokeColour, name){
         this.position = this.createPositionVector();
         this.radius = raduis;
         this.bgColour = bgColour;
@@ -10,6 +10,7 @@ class atom{
         this.velocity = this.create2DVelocityVector();
         this.accleration = this.ccreate2DAcclerationVector();
         this.mass = Math.random()*(4 - 2)+2;
+        this.name = name;
     }
 
     addVelocity(vector){
@@ -137,9 +138,6 @@ class atom{
         other.velocity.velX -= newPosXEq2;
         other.velocity.velY -= newPosYEq2;
 
-
-        // Dot product of 2 vectors.
-
         }
     }
 
@@ -153,5 +151,10 @@ class atom{
         ctx.lineWidth = 2;
         ctx.stroke();
         ctx.imageSmoothingEnabled = true;
+        ctx.fillStyle = 'red';
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseLine = 'middle';
+        ctx.fillText(atom.name, atom.position.x, atom.velocity.y);
     }
 }

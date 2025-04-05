@@ -18,13 +18,19 @@ window.onload = function(){
     const atomBVelY = document.getElementById('atomBVelY');
 
     function setup(){
-        atomA = new atom(25, 'grey', 'black');
-        atomB = new atom(40, 'grey', 'black');
+        atomA = new atom(25, 'grey', 'black', 'A');
+        atomB = new atom(40, 'grey', 'black', 'B');
     }
     
     function draw(){
         atomA.show(ctx, atomA);
         atomB.show(ctx, atomB);
+        // Calculating Kinetic Energy
+        let speedA = Math.sqrt((atomA.velocity.velX**2) + (atomA.velocity.velY**2));
+        let speedB = Math.sqrt((atomB.velocity.velX**2) + (atomB.velocity.velY**2));
+        let kinA = 0.5*atomA.mass*speedA*speedA;
+        let kinB = 0.5*atomB.mass*speedB*speedB;
+        console.log("Kinetic Energy: ", kinA + kinB);   // Kinetic energy is preserving.
         requestAnimationFrame(update);
     }
 
