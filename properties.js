@@ -94,6 +94,7 @@ class atom{
         let m2 = other.mass;
         let sumMass = m1 + m2;
         let twiceM2 = m2*2;
+        let twiceM1 = m1*2;
 
         let posX1 = this.position.x;
         let posY1 = this.position.y;
@@ -121,11 +122,21 @@ class atom{
         let num = twiceM2*dotProduct;
         let denom = sumMass*magSquare;
         let ans = num/denom;
-        newPosX *= ans;
-        newPosY *= ans;
+        let newPosXEq = ans*newPosX;
+        let newPosYEq = ans*newPosY;
+        //for atomA
+        this.velocity.velX -= newPosXEq;
+        this.velocity.velY -= newPosYEq;
 
-        this.velocity.velX -= newPosX;
-        this.velocity.velY -= newPosY;
+        let num2 = twiceM1*(-1*dotProduct);
+        let denom2 = sumMass*magSquare;
+        let ans2 = num2/denom2;
+        let newPosXEq2 = ans2*newPosX;
+        let newPosYEq2 = ans2*newPosY;
+
+        other.velocity.velX -= newPosXEq2;
+        other.velocity.velY -= newPosYEq2;
+
 
         // Dot product of 2 vectors.
 
