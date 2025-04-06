@@ -110,6 +110,20 @@ body{
     margin: 3px;
 }
 
+.ballA{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 100%;
+    color: blue;
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.ballA p{
+    margin: 3px;
+}
+
 .main_div_Rectangle{
     position: relative;
     height: 80%;
