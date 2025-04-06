@@ -8,7 +8,8 @@
 </head>
 <body>
 <section class="umain">
-    <section class="main_Section">
+    <section class="main_Section"> 
+        Particle Collision simulation in 2D
         <div class="main_div_Information">
             <div class="atomA">
                 <p>atomA Position-X: <span id="atomAPosX"></span></p>
@@ -27,6 +28,7 @@
         <!-- <div class="main_div_Particles" id="main_div_Particles"></div> -->
     </section>
     <section class="main_Section2">
+        Collsion Simulation in 1D
         <div class="main_div_Information2">
             <div class="atomA">
                 <p>blockA Mass: <span id="blockAMass"></span><span> </span>Kg</p>
@@ -41,10 +43,28 @@
         </div>
     <canvas class="main_div_Rectangle" id="main_div_Rectangle" width="500" height="500"></canvas>
     </section>
+    <section class="main_Section3">
+        Ball Falling Simulation
+        <div class="main_div_Information2">
+            <div class="atomA">
+                <p>blockA Mass: <span id="blockAMass"></span><span> </span>Kg</p>
+                <p>blockA Position: <span id="blockAPos"></span></p>
+                <p>blockA Velocity: <span id="blockAVel"></span></p>
+            </div>
+            <div class="atomB">
+                <p>blockB Mass: <span id="blockBMass"></span> <span></span>Kg</p>
+                <p>blockB Position: <span id="blockBPos"></span></p>
+                <p>blockB Velocity: <span  id="blockBVel"></span></p>
+            </div>
+        </div>
+    <canvas class="main_div_GravityBall" id="main_div_GravityBall" width="500" height="500"></canvas>
+    </section>
 </section>
 </body>
     <script src="propertiesAtom.js"></script>
     <script src="sketchAtom.js"></script>
     <script src="propertiesRect.js"></script>
     <script src="sketchRect.js"></script>
+    <script src="propertiesBall.js"></script>
+    <script src="sketchBall.js"></script>
 </html>

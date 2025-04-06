@@ -7,7 +7,7 @@ class block{
         this.cordY = cordY;
         this.size = size;
         this.vel = Math.random()*(10 - 0)+0;
-        this.mass = Math.random()*(10 - 0)+0;
+        this.mass = Math.random()*(10 - 5)+5;
         this.bgCour = bgColour;
     }
 
