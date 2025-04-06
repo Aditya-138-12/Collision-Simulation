@@ -7,6 +7,7 @@ class ball{
         this.velocity = this.createVelocityVector3();
         this.mass = Math.floor()*(10 - 0)+0;    // between 10 and 0
         this.radius = 15;
+        this.res = 0.5;
     }
 
     createPositionVector3(){
@@ -33,7 +34,7 @@ class ball{
 
     // Method to simulate gravity
     gravity3(){
-        this.velocity.velY += 10;
+        this.velocity.velY += 5;
     }
 
     update3(){
@@ -41,9 +42,10 @@ class ball{
     }
 
     edges3(){
-        if(this.position.y >= this.radius + canvas3.width){
-            this.position.y = canvas3.width - this.radius;
-            //this.velocity.velY = -1*((this.mass - 1000)/(1000 + this.mass))*this.velocity.velY;
+        if(this.position.y > this.radius + canvas3.height){
+            this.position.y = canvas3.height - this.radius;
+            let vA = -1*this.res*this.velocity.velY;
+            this.velocity.velY = vA;
         }
     }
 }
