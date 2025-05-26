@@ -17,7 +17,8 @@ html, body{
 .main_Section{
     position: relative;
     border: 0.1px solid black;
-    height: 60%;
+/*     height: 60%; */
+    height:60vh;
     width: 50%;
     left: 50%;
     top: 10%;
